@@ -1,4 +1,4 @@
-@extends('connect.master')
+@extends('connect.layout')
 
 @section('title', 'Register')
 
@@ -16,7 +16,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
             </div>
-            {!! Form::text('name',null, ['class' => 'form-control'])!!}
+            {!! Form::text('name',null, ['class' => 'form-control', 'requerid'])!!}
 
         </div>
         <label for="lastname" class="mtop16">Apellido: </label>
@@ -24,7 +24,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
             </div>
-            {!! Form::text('lastname',null, ['class' => 'form-control'])!!}
+            {!! Form::text('lastname',null, ['class' => 'form-control', 'requerid'])!!}
 
         </div>
 
@@ -33,14 +33,14 @@
             <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa-solid fa-envelope"></i></div>
             </div>
-            {!! Form::email('email',null, ['class' => 'form-control'])!!}
+            {!! Form::email('email',null, ['class' => 'form-control', 'requerid'])!!}
         </div>
         <label for="password" class="mtop16">Contraseña: </label>
         <div class="input-grupo">
         <div class="input-group-prepend"> 
                 <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
             </div> 
-            {!! Form::password('password', ['class' => 'form-control'])!!}
+            {!! Form::password('password', ['class' => 'form-control', 'requerid'])!!}
         </div>
         {!! Form::submit('Registarse', ['class' => 'btn btn-success mtop16'])!!}
         {!! Form::close() !!}

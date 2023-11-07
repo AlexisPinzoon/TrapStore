@@ -1,4 +1,4 @@
-@extends('connect.master')
+@extends('connect.layout')
 
 @section('title', 'Inicia Sesion')
 
