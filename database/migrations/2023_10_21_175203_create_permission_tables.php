@@ -14,7 +14,7 @@ class CreatePermissionTables extends Migration
      */
     public function up()
     {
-        $tableNames = config('permission.table_names');
+        /* $tableNames = config('permission.table_names');
         $columnNames = config('permission.column_names');
         $teams = config('permission.teams');
 
@@ -116,7 +116,7 @@ class CreatePermissionTables extends Migration
 
         app('cache')
             ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
-            ->forget(config('permission.cache.key'));
+            ->forget(config('permission.cache.key')); */
     }
 
     /**
@@ -125,7 +125,7 @@ class CreatePermissionTables extends Migration
      * @return void
      */
     public function down()
-    {
+    {/*
         $tableNames = config('permission.table_names');
 
         if (empty($tableNames)) {
@@ -136,6 +136,6 @@ class CreatePermissionTables extends Migration
         Schema::drop($tableNames['model_has_roles']);
         Schema::drop($tableNames['model_has_permissions']);
         Schema::drop($tableNames['roles']);
-        Schema::drop($tableNames['permissions']);
+        Schema::drop($tableNames['permissions']); */
     }
 }
