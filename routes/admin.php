@@ -2,6 +2,5 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin')->group(function() {
-   Route::get('/', 'Admin\DashboardController@getDashboard');
-
-});
+    Route::get('/', 'App\Http\Controllers\Admin\DashboardController@getDashboard');
+ });
