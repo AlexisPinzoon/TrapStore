@@ -25,6 +25,9 @@
             <li>
                 <a href="{{ url('/admin/users')}}"><i class="fa-solid fa-users"></i> Usuarios </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/categories')}}"><i class="fa-solid fa-sitemap"></i> Categorias </a>
+            </li>
         </ul>
     </div>
 </div>
