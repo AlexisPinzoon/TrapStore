@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('section');
             $table->string('slug');
             $table->string('icono');
-            $table->softDeletes('0');
             $table->timestamps();
         });
     }
