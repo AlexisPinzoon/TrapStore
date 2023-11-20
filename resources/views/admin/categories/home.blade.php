@@ -4,7 +4,7 @@
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{ url ('/admin/categories')}}"><i class="fa-solid fa-sitemap"></i> Categorias </a>
+        <a href="{{ url('/admin/categories/0')}}"><i class="fa-solid fa-sitemap"></i> Categorias </a>
     </li>
 @endsection
 

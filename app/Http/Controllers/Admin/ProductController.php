@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -17,6 +18,8 @@ class ProductController extends Controller
     }
 
     public function getProductAdd(){
-        return view('admin.products.add');
+        $cats = Category::where('section', '0')->pluck('name','id');
+        $data = ['cats'=> $cats];
+        return view('admin.products.add', $data);
     }
 }

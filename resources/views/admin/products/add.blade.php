@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid mtop16">
         <div class="panel shadow">
             <div class="header">
                 <h2 class="tittle"><i class="fa-solid fa-plus"></i> Agregar Producto </h2>
@@ -33,7 +33,15 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label for="name">Categoría:</label>
+                        <label for="category">Categoría:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fa-solid fa-align-justify"></i>
+                                </span>
+                            </div>
+                            {!! Form::select('category', $cats, 0,['class' => 'custom-select']) !!}
+                        </div>
                     </div>
 
                     <div class="col-md-3">
