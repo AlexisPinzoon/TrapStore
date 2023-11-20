@@ -10,5 +10,10 @@ Route::prefix('/admin')->group(function() {
 
     Route::get('/categories/{section}', 'App\Http\Controllers\Admin\CategoriesController@getHome');
     Route::post('/category/add', 'App\Http\Controllers\Admin\CategoriesController@postCategoryAdd');
+    Route::get('/category/{id}/edit','App\Http\Controllers\Admin\CategoriesController@getCategoryEdit');
+    Route::post('/category/{id}/edit','App\Http\Controllers\Admin\CategoriesController@postCategoryEdit');
+    Route::get('/category/{id}/delete','App\Http\Controllers\Admin\CategoriesController@getCategoryDelete');
+
+
 
  });

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid mtop16">
         <div class="panel shadow">
             <div class="header">
                 <h2 class="tittle"><i class="fa-solid fa-users"></i> Usuarios </h2>

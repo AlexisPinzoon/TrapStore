@@ -47,8 +47,48 @@ class CategoriesController extends Controller
             endif;
 
         endif;
+    }
 
+    public function getCategoryEdit($id){
+        $cat = Category::find($id);
+        $data = ['cat' => $cat];
+        return view('admin.categories.edit', $data);
+    }
 
+    public function postCategoryEdit(Request $request, $id){
+        $rules = [
+            'name'=>'required',
+            'icon'=>'required'
+        ];
+
+        $massages =[
+            'name.required' => 'Ingrese un nombre para la categoria',
+            'icon.required' => 'Ingrese un icono para la categoria'
+
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $massages);
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error') ->with( 'typealert', 'danger');
+        else:
+            $c = Category::find($id);
+            $c->section = $request->input('section');
+            $c->name = $request->input('name');
+            $c->slug = Str::slug($request->input('name'));
+            $c->icono = $request->input('icon');
+            if($c->save()):
+                return back()->with('message', 'Se ha guardo exitosamente')->with('typealert', 'success');
+            endif;
+
+        endif;
+    }
+
+    public function getCategoryDelete($id){
+        $c = Category::find($id);
+        if($c->delete()):
+            return back()->with('message', 'Se ha eliminado exitosamente')->with('typealert', 'success');
+        endif;
 
     }
+
 }

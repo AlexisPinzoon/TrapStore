@@ -86,10 +86,10 @@
                                 <td>{{ $cat->name }}</td>
                                 <td>
                                     <div class="opts">
-                                        <a href="{{ url('/admin/category'.$cat->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
+                                        <a href="{{ url('/admin/category/'.$cat->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="{{ url('/admin/category'.$cat->id.'/delete')}}"data-toogle="tooltip" data-placement="top" title="Eliminar">
+                                        <a href="{{ url('/admin/category/'.$cat->id.'/delete')}}"data-toogle="tooltip" data-placement="top" title="Eliminar">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </div>
