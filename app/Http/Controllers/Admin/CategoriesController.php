@@ -61,13 +61,13 @@ class CategoriesController extends Controller
             'icon'=>'required'
         ];
 
-        $massages =[
+        $messages =[
             'name.required' => 'Ingrese un nombre para la categoria',
             'icon.required' => 'Ingrese un icono para la categoria'
 
         ];
 
-        $validator = Validator::make($request->all(), $rules, $massages);
+        $validator = Validator::make($request->all(), $rules, $messages);
         if($validator->fails()):
             return back()->withErrors($validator)->with('message', 'Se ha producido un error') ->with( 'typealert', 'danger');
         else:

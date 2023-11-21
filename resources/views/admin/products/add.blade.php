@@ -19,7 +19,7 @@
             </div>
 
             <div class="inside">
-                {!! Form::open(['url'=>'/admin/product/add']) !!}
+                {!! Form::open(['url'=>'/admin/product/add', 'files'=>true]) !!}
                 <div class="row">
                     <div class="col-md-6">
                         <label for="name">Nombre del Producto:</label>
@@ -47,7 +47,7 @@
                     <div class="col-md-3">
                         <label for="name">Imagen Destacada:</label>
                         <div class="custom-file">
-                        {!! Form::file('img', ['class'=> 'custom-file-input','id'=>"customFile"]) !!}
+                        {!! Form::file('img', ['class'=> 'custom-file-input','id'=>"customFile", 'accept'=>'image/*']) !!}
                         <label class="custom-file-label" for="customFile">Buscar Archivo</label>
                         </div>
                     </div>
