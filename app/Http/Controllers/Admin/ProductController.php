@@ -22,7 +22,9 @@ class ProductController extends Controller
     }
 
     public function getHome(){
-        return view('admin.products.home');
+        $products = Product::orderBy('id','desc')->paginate(25);
+        $data = ['products' => $products];
+        return view('admin.products.home',$data);
     }
 
     public function getProductAdd(){
@@ -63,7 +65,7 @@ class ProductController extends Controller
             $product -> name = e($request->input('name'));
             $product -> slug = Str::slug($request->input('name'));
             $product -> category_id = $request->input('category');
-            $product -> image = "image.png";
+            $product -> image = $filename;
             $product -> file_path = date('Y-m-d');
             $product -> price = $request->input('price');
             $product -> in_discount = $request->input('indiscount');
