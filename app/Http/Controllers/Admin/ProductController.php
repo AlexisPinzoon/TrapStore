@@ -85,8 +85,14 @@ class ProductController extends Controller
 
 
         endif;
+    }
 
+    public function getProductEdit($id){
+        $p = Product::find($id);
 
+        $cats = Category::where('section', '0')->pluck('name','id');
+        $data = ['cats'=> $cats, 'p' => $p];
+        return view('admin.products.edit', $data);
 
     }
 }
