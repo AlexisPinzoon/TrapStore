@@ -196,7 +196,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class
 
     ],
 
@@ -216,5 +217,6 @@ return [
     ])->toArray(),
     'Permission' => Spatie\Permission\PermissionFacade::class,
     'Image' => Intervention\Image\Facades\Image::class,
+    'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
 
 ];

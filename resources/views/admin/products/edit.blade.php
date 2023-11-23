@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="inside">
-                        {!! Form::open(['url'=>'/admin/product/add', 'files'=>true]) !!}
+                        {!! Form::open(['url'=>'/admin/product/'.$p->id.'/edit', 'files'=>true]) !!}
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="name">Nombre del Producto:</label>
@@ -89,6 +89,18 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-2">
+                                    <label for="indiscount"> Estado </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="fa-solid fa-money-check-dollar"></i>
+                                            </span>
+                                        </div>
+                                        {!! Form::select('status', ['0'=> 'Borrador', '1' => 'Público'], $p->status,['class' => 'custom-select']) !!}
+                                    </div>
+                                </div>
+
                         </div>
 
                         <div class="row mtop16">
@@ -119,6 +131,20 @@
                             <img src="{{ url ('/uploads/'.$p->file_path.'/'.$p->image)}}" class="img-fluid">
                         </div>
                     </div>
+                </div>
+
+                <div class="panel shadow mtop16">
+                    <div class="header">
+                        <h2 class="tittle"><i class="fas fa-images"></i> Galeria </h2>
+                        <div class="inside product_gallery">
+                            {!! Form::open(['url'=>'/admin/product/'.$p->id.'/gallery/add', 'files' => true]) !!}
+                            {!! Form::file('file_image', ['id'=>'product_file_image', 'accept' => 'image/*']) !!}
+                            {!! Form::close() !!}
+
+                            <div class="tumb">
+                                    <a href="#" id="product_file_image"><i class="fas fa-plus"></i></a>
+                            </div>
+                        </div>
                 </div>
 
             </div>
