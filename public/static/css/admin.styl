@@ -42,6 +42,8 @@ h2,h3,h4,ul,body,html
     .main
         display block
         margin-top 8px
+        height: 100vh;
+        overflow-y: auto;
         ul
             li
                 margin-bottom 4px
@@ -137,20 +139,41 @@ h2,h3,h4,ul,body,html
 
 .product_gallery
     overflow: hidden
-    .tumb
-        float: left
+    .btn-submit
         display block
         margin-right: 1%
-        width: 49%
+        width: 100%
         a
             border 1px dashed #6666
             border-radius: 4px
             color #333
             display block
-            font-size: 2em
+            font-size: 1.5em
             text-align: center
-            padding: 40px 0px
+            padding: 12px
             width: 100%
             &:hover
                 background-color: #ffffff
                 color #333
+
+    .tumbs
+        overflow: hidden
+        .tumb
+            float left
+            margin-top: 16px
+            position relative
+            width: 48%
+            a
+                background-color: rgba(0,0,0,.5)
+                border-radius: 50%
+                display: inline-block
+                color: #fff
+                padding: 6px 10px
+                position absolute
+                bottom: 8px
+                right: 8px
+            img
+                border-radius: 4px
+                width 100%
+            &:nth-child(odd)
+                margin-right: 4%

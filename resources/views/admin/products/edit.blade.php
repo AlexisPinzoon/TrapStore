@@ -126,7 +126,7 @@
             <div class="col-md-3">
                 <div class="panel shadow">
                     <div class="header">
-                        <h2 class="tittle"><i class="fas fa-image"></i> Imagen </h2>
+                        <h2 class="tittle"><i class="fas fa-image"></i> Imágen </h2>
                         <div class="inside">
                             <img src="{{ url ('/uploads/'.$p->file_path.'/'.$p->image)}}" class="img-fluid">
                         </div>
@@ -137,15 +137,30 @@
                     <div class="header">
                         <h2 class="tittle"><i class="fas fa-images"></i> Galeria </h2>
                         <div class="inside product_gallery">
-                            {!! Form::open(['url'=>'/admin/product/'.$p->id.'/gallery/add', 'files' => true]) !!}
-                            {!! Form::file('file_image', ['id'=>'product_file_image', 'accept' => 'image/*']) !!}
+                            {!! Form::open(['url'=>'/admin/product/'.$p->id.'/gallery/add', 'files' => true, 'id' => 'form_product_gallery']) !!}
+                                {!! Form::file('file_image', ['id'=>'product_file_image', 'accept' => 'image/*', 'required']) !!}
                             {!! Form::close() !!}
 
-                            <div class="tumb">
-                                    <a href="#" id="product_file_image"><i class="fas fa-plus"></i></a>
+                            <div class="btn-submit">
+                                <a href="#" id="btn_product_file_image"><i class="fas fa-plus"></i></a>
+                            </div>
+
+                            <div class="tumbs">
+                                @foreach ($p->getGallery as $img)
+                                    <div class="tumb">
+                                        <a href="{{url ('/admin/product/'.$p->id.'/gallery/'.$img->id.'/delete')}}" data-toogle="tooltip" data-placement="top" title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <img src="{{url ('/uploads/'.$img->file_path.'/t_'.$img->file_name)}}">
+                                    </div>
+
+                                @endforeach
+
                             </div>
                         </div>
+                    </div>
                 </div>
+
 
             </div>
         </div>
