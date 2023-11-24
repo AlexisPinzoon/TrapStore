@@ -61,7 +61,11 @@ h2,h3,h4,ul,body,html
                         box-shadow 0 0.5rem 1rem rgb(255, 255, 255)
                         color rgb(255, 242, 242)!important
                         font-size 18px
-
+                a.active
+                    background-color: rgb(0, 0, 0)
+                    box-shadow 0 0.5rem 1rem rgb(255, 255, 255)
+                    color rgb(255, 242, 242)!important
+                    font-size 18px
 .navbar
     background-color rgb(255, 253, 253)
     font-size 16px
@@ -177,3 +181,28 @@ h2,h3,h4,ul,body,html
                 width 100%
             &:nth-child(odd)
                 margin-right: 4%
+
+.page_user
+    .mini_profile
+        .avatar
+            display block
+            margin 0px auto
+            border-radius 50%
+            width 150px
+
+.page_user .mini_profile .info {
+    background-color: #fff;
+}
+
+.page_user .mini_profile .info span {
+    display: block;
+    font-size: 1.2em;
+    width: 100%;
+    font-weight: bold;
+}
+
+.page_user .mini_profile .info span.title {
+    font-weight: bold;
+    margin-top: 16px;
+}
+

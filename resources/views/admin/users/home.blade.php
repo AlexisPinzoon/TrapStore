@@ -4,7 +4,7 @@
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{ url ('/admin/users')}}"><i class="fas fa-users"></i> Usuarios</a>
+        <a href="{{ url ('/admin/users')}}"><i class="fas fa-users"></i> Usuarios </a>
     </li>
 @endsection
 
@@ -15,6 +15,20 @@
                 <h2 class="tittle"><i class="fa-solid fa-users"></i> Usuarios </h2>
             </div>
             <div class="inside">
+                <div class ="row">
+                    <div class ="col-md-2 offset-md-10">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" ara-expanded="false" style="width: 100%;">
+                                <i class="fas fa-filter"></i> Filtrar
+                            </button>
+                            <div class="dropdown-menu" aria.labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ url('/admin/users/all') }}"> Todos </a>
+                                <a class="dropdown-item" href="{{ url('/admin/users/0') }}"> Registrados </a>
+                                <a class="dropdown-item" href="{{ url('/admin/users/100') }}"> Suspendidos </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -22,6 +36,8 @@
                             <td>Nombre</td>
                             <td>Apellido</td>
                             <td>Email</td>
+                            <td>Rol</td>
+                            <td>Estado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,19 +47,21 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->lastname}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{ getRoleUserArrayKey($user->role) }}</td>
+                            <td>{{ getUserStatusArrayKey($user->status) }}</td>
                         </tr>
                         <td>
                             <div class="opts">
-                                <a href="{{ url('/admin/user'.$user->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
+                                <a href="{{ url('/admin/user/'.$user->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
                                     <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="{{ url('/admin/user'.$user->id.'/delete')}}"data-toogle="tooltip" data-placement="top" title="Eliminar">
-                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </div>
                         </td>
 
                         @endforeach
+                        <tr>
+                            <td colspan="7">{!!$users->render()!!}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

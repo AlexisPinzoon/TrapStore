@@ -114,6 +114,8 @@ class ProductController extends Controller
             return back()->withErrors($validator)->with('message', 'Se ha producido un error') ->with( 'typealert', 'danger')->withInput();
         else:
             $product = Product::findOrFail($id);
+            $ipp = $product->file_path;
+            $ip = $product ->image;
             $product -> status = $request->input('status');
             $product -> name = e($request->input('name'));
             $product -> category_id = $request->input('category');
@@ -140,6 +142,9 @@ class ProductController extends Controller
                         $constraint->upsize();
                     });
                     $img->save($upload_path.'/'.$path.'/t_'.$filename);
+                    unlink($upload_path.'/'.$ipp.'/'.$ip);
+                    unlink($upload_path.'/'.$ipp.'/t_'.$ip);
+
                 endif;
                 return back()->with('message', 'Se ha actualizado exitosamente')->with('typealert', 'success');
             endif;
@@ -193,7 +198,7 @@ class ProductController extends Controller
         endif;
     }
 
-    function getProductGalleryDelete($id, $gid){
+    public function getProductGalleryDelete($id, $gid){
         $g = PGallery::findOrFail($gid);
         $path = $g->file_path;
         $file= $g->file_name;
