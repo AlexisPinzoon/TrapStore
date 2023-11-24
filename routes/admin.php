@@ -6,6 +6,8 @@ Route::prefix('/admin')->group(function() {
 
     Route::get('/users/{status}', 'App\Http\Controllers\Admin\UserController@getUsers')->name('user_list');
     Route::get('/user/{id}/edit', 'App\Http\Controllers\Admin\UserController@getUserEdit')->name('user_edit');
+    Route::get('/user/{id}/banned', 'App\Http\Controllers\Admin\UserController@getUserBanned')->name('user_banned');
+
 
 
     Route::get('/products', 'App\Http\Controllers\Admin\ProductController@getHome')->name('products');

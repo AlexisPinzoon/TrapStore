@@ -47,8 +47,8 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->lastname}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{ getRoleUserArrayKey($user->role) }}</td>
-                            <td>{{ getUserStatusArrayKey($user->status) }}</td>
+                            <td>{{ getRoleUserArray(null,$user->role) }}</td>
+                            <td>{{ getUserStatusArray(null,$user->status) }}</td>
                         </tr>
                         <td>
                             <div class="opts">
