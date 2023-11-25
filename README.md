@@ -31,11 +31,10 @@ Asegúrate de cumplir con los siguientes requisitos para que el proyecto funcion
 5. Ejecuta `php artisan migrate` para migrar la base de datos.
 6. Ejecuta `npm install` para instalar las dependencias de Node.js.
 7. Ejecuta `npm run dev` para compilar los assets.
-8. Ubicate en la direccion de la carpeta y posteriormente lanza los estilos `stylus admin.styl -c -w`
 
 ## Acceso
-Lanza el servidor y postariormente:
-Ubicate en la direccion de la carpeta y lanza los estilos `stylus admin.styl -c -w`
+Lanza el servidor y posteriormente:
+Ubicate en la direccion de la carpeta `cd public/static/css` y lanza los estilos `stylus admin.styl -c -w`
 
 Puedes acceder a la aplicación en los siguientes enlaces:
 
