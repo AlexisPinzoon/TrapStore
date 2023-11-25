@@ -31,7 +31,7 @@ class ConnectController extends Controller
             'email.email' => 'Correo invalido.',
             'password.required' => 'Ingrese su contraseña.',
             'password.min' => 'Su contraseña debe tener al menos 8 caracteres.',
-    
+
         ];
         $validator = Validator::make($request->all(), $rules,$messages);
         if($validator->fails()):
@@ -80,14 +80,49 @@ class ConnectController extends Controller
                 $user->password = Hash::make($request->input('password'));
 
                 if($user->save()):
-                    return redirect('/login') ->with('message', 'Usuario registrado correctamente', 'typealert', 'succes');
+                    return redirect('/login') ->with('message', 'Usuario registrado correctamente', 'typealert', 'success');
                 endif;
 
             endif;
     }
 
     public function getLogout(){
+        $status = Auth::user()->status;
         Auth::logout();
-        return redirect('/');   
+        if($status == "100"):
+            return redirect('/login') ->with('message', 'Usted fue suspendido', 'typealert', 'danger');
+        else:
+            return redirect('/');
+        endif;
+    }
+
+    public function getRecover(){
+        return view('connect.recover');
+    }
+
+    public function postRecover(Request $request){
+        $rules =[
+            'email' => 'required|email',
+        ];
+
+        $messages = [
+
+            'email.required' => 'Ingrese su correo electronico.',
+            'email.email' => 'Correo invalido.',
+
+        ];
+        $validator = Validator::make($request->all(), $rules,$messages);
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error', 'typealert', 'danger');
+        else:
+            $user = User::where('email', $request->input('email'))->count();
+            if($user == "1"):
+                $user = User::where('email', $request->input('email'))->first();
+                $data = ['name' => $user->name, 'email' => $user->email];
+                return view('emails.user_pass_recover');
+            else:
+                return back()->with('message', 'El correo electronico ingresado no existe en nuestra base de datos')->with('typealert','danger');
+            endif;
+        endif;
     }
 }

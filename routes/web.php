@@ -21,6 +21,8 @@ Route::get('/', function () {
 //Routes Auth
 Route::get('/login', [ConnectController::class, 'getLogin']);
 Route::post('/login', [ConnectController::class, 'postLogin']);
+Route::get('/recover', [ConnectController::class, 'getRecover']);
+Route::post('/recover', [ConnectController::class, 'postRecover']);
 Route::get('/register', [ConnectController::class, 'getRegister']);
 Route::post('/register', [ConnectController::class, 'postRegister']);
-Route::get('/logout', [ConnectController::class, 'getLogout']);   
+Route::get('/logout', [ConnectController::class, 'getLogout']);

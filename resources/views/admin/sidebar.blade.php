@@ -4,12 +4,12 @@
             <img src= "{{ url('static\img\1-removebg-preview.png') }}" class="img-fluid">
         </div>
 
-        <div class=" user ">
+        <div class="user">
             <span class=" subtitle "> Hola: </span>
             <div class=" name ">
                 {{ Auth::user()->name}} {{ Auth::user()->lastname }}
                 <div class="email">{{ Auth::user()->email }}</div>
-                <a href=" {{ url(' /logout ') }} " data-toogle="tooltip" data-placement="top" title="Salir">
+                <a href=" {{ url('/logout') }} " data-toogle="tooltip" data-placement="top" title="Salir">
                     <i class=" fa-solid fa-right-from-bracket "></i>
                 </a>
             </div>

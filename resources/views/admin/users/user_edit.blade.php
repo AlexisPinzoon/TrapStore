@@ -38,8 +38,8 @@
                                     <span class="title"><i class="fas fa-user-shield"></i> Rol del usuario: </span>
                                     <span class="text">{{ getRoleUserArray(null,$u->role) }} </span>
                                 </div>
-                                @if ($u->status== "100")
-                                <a href="{{url ('/admin/user/'.$u->id.'/banned')}}" class="btn btn-danger">Quitar Suspensión </a>
+                                @if ($u->status == "100")
+                                <a href="{{url ('/admin/user/'.$u->id.'/banned')}}" class="btn btn-Success">Quitar Suspensión </a>
                                 @else
                                 <a href="{{url ('/admin/user/'.$u->id.'/banned')}}" class="btn btn-danger">Suspender Usuario </a>
                                 @endif

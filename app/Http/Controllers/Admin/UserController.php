@@ -11,6 +11,8 @@ class UserController extends Controller
     public function __construct() {
         $this->middleware('auth');
         $this->middleware('isadmin');
+        $this->middleware('user.status');
+
     }
 
     public function getUsers($status){
@@ -32,15 +34,15 @@ class UserController extends Controller
     public function getUserBanned($id){
         $u = User::findOrFail($id);
         if($u->status == "100"):
-            $u->status = "1";
-            $massage = "Usuario activo nuevamente";
+            $u->status = "0";
+            $message = "Usuario activo nuevamente";
         else:
             $u->status = "100";
-            $massage = "Usuario suspendido exitosamente";
+            $message = "Usuario suspendido exitosamente";
         endif;
 
         if($u->save()):
-            return back()->with('massage', $massage)->with('typealert', 'success');
+            return back()->with('message', $message)->with('typealert', 'success');
         endif;
     }
 }
