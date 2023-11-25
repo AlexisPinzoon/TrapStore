@@ -33,6 +33,8 @@ Asegúrate de cumplir con los siguientes requisitos para que el proyecto funcion
 7. Ejecuta `npm run dev` para compilar los assets.
 
 ## Acceso
+Lanza el servidor y posteriormente:
+Ubicate en la direccion de la carpeta `cd public/static/css` y lanza los estilos `stylus admin.styl -c -w`
 
 Puedes acceder a la aplicación en los siguientes enlaces:
 
