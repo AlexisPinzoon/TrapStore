@@ -36,8 +36,7 @@ Asegúrate de cumplir con los siguientes requisitos para que el proyecto funcion
 
 Puedes acceder a la aplicación en los siguientes enlaces:
 
-- [Login](http://127.0.0.1:8000/login)
-- [Administración](http://127.0.0.1:8000/admin)
+- [Login](http://127.0.0.1:8000/login)(Accede como administrador y luego dirigete al url de la administración)->[Administración](http://127.0.0.1:8000/admin)
 
 **Credenciales de Administrador:**
 - Correo electrónico: administrador@gmail.com
