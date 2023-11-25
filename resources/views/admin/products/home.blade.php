@@ -50,7 +50,7 @@
                                 <a href="{{ url('/admin/product/'.$p->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{{ url('/admin/product/'.$p->id.'/delete')}}"data-toogle="tooltip" data-placement="top" title="Eliminar">
+                                <a href="#" data-path="admin/product" data-object="{{ $p->id }}" data-toogle="tooltip" data-placement="top" title="Eliminar" class="btn-deleted">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </div>
