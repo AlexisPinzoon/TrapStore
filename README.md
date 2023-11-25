@@ -34,7 +34,7 @@ Asegúrate de cumplir con los siguientes requisitos para que el proyecto funcion
 8. Ubicate en la direccion de la carpeta y posteriormente lanza los estilos `stylus admin.styl -c -w`
 
 ## Acceso
-Lana el servidor y postariormente:
+Lanza el servidor y postariormente:
 Ubicate en la direccion de la carpeta y lanza los estilos `stylus admin.styl -c -w`
 
 Puedes acceder a la aplicación en los siguientes enlaces:
