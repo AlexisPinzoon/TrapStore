@@ -36,18 +36,34 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/')}}" class="nav-link"><i class="fas fa-home"></i> Inicio </a>
+                        <a href="{{ url('/')}}" class="nav-link"> Inicio </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/')}}" class="nav-link"> Hombre </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/')}}" class="nav-link"> Mujer </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/')}}" class="nav-link"> Ofertas </a>
+                    </li>
+                    <li class="nav-item link-acc">
+                        <a href="{{ url('/car')}}" class="nav-link"><i class="fa-solid fa-cart-shopping"></i><span class="carnumber">0</span></a>
                     </li>
                     @if(Auth::guest())
                     <li class="nav-item link-acc">
-                        <a href="{{ url('/login')}}" class="nav-link btn"><i class="far fa-user-circle"></i> Mi Cuenta </a>
-                        <a href="{{ url('/register')}}" class="nav-link btn"><i class="far fa-user-circle"></i> Crear Cuenta </a>
+                        <a href="{{ url('/login')}}" class="nav-link btn"><i class="far fa-user-circle"></i> Iniciar Sesión </a>
+                        <a href="{{ url('/register')}}" class="nav-link btn"> Registrarme </a>
                     </li>
                     @else
+                    <li class="nav-item link-acc">
+                        <a href="{{ url('/login')}}" class="nav-link btn">
+                            @if(is_null(Auth::user()->avatar)) <img src=""> @endif Hola {{ Auth::user()->name }}
+                        </a>
+                    </li>
                     @endif
                 </ul>
             </div>
-
         </div>
     </nav>
     @if(Session::has('message'))

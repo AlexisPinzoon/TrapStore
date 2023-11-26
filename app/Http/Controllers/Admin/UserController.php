@@ -45,4 +45,43 @@ class UserController extends Controller
             return back()->with('message', $message)->with('typealert', 'success');
         endif;
     }
+
+    public function getUserPermissions($id){
+        $u = User::findOrFail($id);
+        $data = ['u'=> $u];
+        return view('admin.users.user_permissions',$data);
+
+    }
+
+    public function postUserPermissions(Request $request, $id){
+        $u = User::findOrFail($id);
+        $permissions = ['inicio' => $request->input('inicio'),
+        $permissions = 'products' => $request->input('products'),
+        $permissions = 'product_add' => $request->input('product_add'),
+        $permissions = 'product_edit' => $request->input('product_edit'),
+        $permissions = 'product_gallery_add' => $request->input('product_gallery_add'),
+        $permissions = 'product_gallery_delete' => $request->input('product_gallery_delete'),
+        $permissions = 'categories' => $request->input('categories'),
+        $permissions = 'category_add' => $request->input('category_add'),
+        $permissions = 'category_edit' => $request->input('category_edit'),
+        $permissions = 'category_delete' => $request->input('category_delete'),
+        $permissions = 'user_list' => $request->input('user_list'),
+        $permissions = 'user_edit' => $request->input('user_edit'),
+        $permissions = 'user_banned' => $request->input('user_banned'),
+
+
+
+
+
+
+
+
+
+        ];
+        $permissions = json_encode($permissions);
+        $u->permissions = $permissions;
+        if($u->save()):
+            return back()->with('message', 'Permisos actualizados exitosamente')->with('typealert', 'success');
+        endif;
+    }
 }

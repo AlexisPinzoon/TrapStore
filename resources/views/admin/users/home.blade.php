@@ -55,6 +55,10 @@
                                 <a href="{{ url('/admin/user/'.$user->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
+
+                                <a href="{{ url('/admin/user/'.$user->id.'/permissions')}}"data-toogle="tooltip" data-placement="top" title="Permisos de usuario">
+                                    <i class="fas fa-cogs"></i>
+                                </a>
                             </div>
                         </td>
 
