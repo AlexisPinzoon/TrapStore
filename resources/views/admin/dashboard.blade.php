@@ -6,10 +6,10 @@
 <div class="container-fluid mtop16">
     <div class="panel shadow">
         <div class="header">
-            <h2 class="tittle"><i class="fas fa-home"></i> Inicio </h2>
+            <h2 class="tittle"><i class="fa-solid fa-hand"></i> Panel Administrativo </h2>
         </div>
         <div class="inside">
-            <p>Inicio</p>
+            <p>Estadisticas</p>
         </div>
     </div>
 </div>

@@ -5,7 +5,7 @@
         </div>
 
         <div class="user">
-            <span class=" subtitle "> Hola: </span>
+            <span class=" subtitle "> Hola! </span>
             <div class=" name ">
                 {{ Auth::user()->name}} {{ Auth::user()->lastname }}
                 <div class="email">{{ Auth::user()->email }}</div>
@@ -18,9 +18,9 @@
     </div>
     <div class="main">
         <ul>
-            @if(kvfj(Auth::user()->permissions, 'inicio'))
+            @if(kvfj(Auth::user()->permissions, 'dashboard'))
             <li>
-                <a href="{{ url('/admin')}}" class="link-inicio"><i class="fa-solid fa-house"></i> Inicio </a>
+                <a href="{{ url('/admin')}}" class="link-dashboard"><i class="fa-solid fa-hand"></i> Panel Administrativo </a>
             </li>
             @endif
 

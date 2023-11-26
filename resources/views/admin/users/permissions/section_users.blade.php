@@ -1,7 +1,7 @@
 <div class="col-md-4 d-flex">
     <div class="panel shadow">
         <div class="header">
-            <h2 class="tittle"><i class="fa-solid fa-users"></i> Seccion de Usuarios </h2>
+            <h2 class="tittle"><i class="fa-solid fa-users"></i> Sección de Usuarios </h2>
         </div>
 
         <div class="inside">

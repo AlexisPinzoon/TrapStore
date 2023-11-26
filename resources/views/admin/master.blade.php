@@ -52,7 +52,7 @@
                         <nav aria-label= "breadcrumb shadow">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="{{url('/admin')}}"><i class=" fas fa-home "></i> Inicio </a>
+                                    <a href="{{url('/admin')}}"><i class="fa-solid fa-hand"></i> Panel Administrativo </a>
                                 </li>
                                 @section('breadcrumb')
                                 @show

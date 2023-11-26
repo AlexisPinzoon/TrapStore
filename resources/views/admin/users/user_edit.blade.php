@@ -58,14 +58,23 @@
                         <div class="inside">
                             @if(kvfj(Auth::user()->permissions, 'user_edit'))
                             {!! Form::open(['url' => 'admin/user/'.$u->id.'/edit']) !!}
-                                <label for="section" class="mtop16"> Tipo de usuario: </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="fa-solid fa-align-justify"></i>
-                                        </span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="section" class="mtop16"> Tipo de usuario: </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">
+                                                    <i class="fa-solid fa-align-justify"></i>
+                                                </span>
+                                            </div>
+                                            {!! Form::select('user_type', getRoleUserArray('list',null), $u->role,['class' => 'custom-select']) !!}
+                                        </div>
                                     </div>
-                                    {!! Form::select('user_type', getRoleUserArray('list',null), $u->role,['class' => 'custom-select']) !!}
+                                </div>
+                                <div class="row mtop16">
+                                    <div class="col-md-12">
+                                        {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                                    </div>
                                 </div>
                             {!! Form::close() !!}
                             @endif

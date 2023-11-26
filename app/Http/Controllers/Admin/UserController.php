@@ -32,6 +32,27 @@ class UserController extends Controller
         return view('admin.users.user_edit',$data);
     }
 
+    public function postUserEdit($id, Request $request){
+        $u = User::findOrFail($id);
+        $u->role = $request->input('user_type');
+        if($request->input('user_type') == "1"):
+            if(is_null($u->permissions)):
+                $permissions = ['dashboard' => true];
+                $permissions = json_encode($permissions);
+                $u->permissions = $permissions;
+            endif;
+        else:
+            $u->permissions = null;
+        endif;
+        if($u->save()):
+            if($request->input('user_type')== "1"):
+                return redirect('/admin/user/'.$u->id.'/permissions')->with('message', 'El rol se ha actualizado correctamente')->with('typealert', 'success');
+            else:
+                return back()->with('message', 'El rol se ha actualizado correctamente')->with('typealert', 'success');
+            endif;
+        endif;
+    }
+
     public function getUserBanned($id){
         $u = User::findOrFail($id);
         if($u->status == "100"):
@@ -56,7 +77,7 @@ class UserController extends Controller
 
     public function postUserPermissions(Request $request, $id){
         $u = User::findOrFail($id);
-        $permissions = ['inicio' => $request->input('inicio'),
+        $permissions = ['dashboard' => $request->input('dashboard'),
         $permissions = 'products' => $request->input('products'),
         $permissions = 'product_add' => $request->input('product_add'),
         $permissions = 'product_edit' => $request->input('product_edit'),
@@ -71,16 +92,6 @@ class UserController extends Controller
         $permissions = 'user_edit' => $request->input('user_edit'),
         $permissions = 'user_banned' => $request->input('user_banned'),
         $permissions = 'user_permissions' => $request->input('user_permissions'),
-
-
-
-
-
-
-
-
-
-
         ];
         $permissions = json_encode($permissions);
         $u->permissions = $permissions;

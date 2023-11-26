@@ -47,6 +47,8 @@
         @endif
         <div class="footer mtop16">
             <a href="{{ url('/register')}}">¿No tienes una cuenta? Registrate</a>
+        </div>
+        <div class="footer mtop16">
             <a href="{{ url('/recover')}}">¿Olvidaste tu contraseña? Recuperala</a>
         </div>
     </div>

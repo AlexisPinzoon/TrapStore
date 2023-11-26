@@ -2,10 +2,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin')->group(function() {
-    Route::get('/', 'App\Http\Controllers\Admin\DashboardController@getDashboard')->name('inicio');
+    Route::get('/', 'App\Http\Controllers\Admin\DashboardController@getDashboard')->name('dashboard');
 
     Route::get('/users/{status}', 'App\Http\Controllers\Admin\UserController@getUsers')->name('user_list');
     Route::get('/user/{id}/edit', 'App\Http\Controllers\Admin\UserController@getUserEdit')->name('user_edit');
+    Route::post('/user/{id}/edit', 'App\Http\Controllers\Admin\UserController@postUserEdit')->name('user_edit');
+
     Route::get('/user/{id}/banned', 'App\Http\Controllers\Admin\UserController@getUserBanned')->name('user_banned');
     Route::get('/user/{id}/permissions', 'App\Http\Controllers\Admin\UserController@getUserPermissions')->name('user_permissions');
     Route::post('/user/{id}/permissions', 'App\Http\Controllers\Admin\UserController@postUserPermissions')->name('user_permissions');

@@ -40,8 +40,10 @@
             </div>
         @endif
         <div class="footer mtop16">
-            <a href="{{ url('/register')}}">¿No tienes una cuenta? Registrate</a>
             <a href="{{ url('/login')}}">Inicia Sesión</a>
+        </div>
+        <div class="footer mtop16">
+            <a href="{{ url('/register')}}">¿No tienes una cuenta? Registrate</a>
         </div>
     </div>
 </div>

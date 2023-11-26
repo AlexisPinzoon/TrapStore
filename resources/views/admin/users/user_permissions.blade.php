@@ -17,7 +17,7 @@
             <form action="{{ url('/admin/user/'.$u->id.'/permissions/') }}" method="POST">
                 @csrf
                 <div class="row">
-                    @include('admin.users.permissions.section_inicio')
+                    @include('admin.users.permissions.section_dashboard')
                     @include('admin.users.permissions.section_users')
                     @include('admin.users.permissions.section_products')
                 </div>

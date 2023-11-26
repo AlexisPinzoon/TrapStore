@@ -1,7 +1,7 @@
 <div class="col-md-4 d-flex">
     <div class="panel shadow">
         <div class="header">
-            <h2 class="tittle"><i class="fa-solid fa-box-open"></i> Seccion de Productos </h2>
+            <h2 class="tittle"><i class="fa-solid fa-box-open"></i> Sección de Productos </h2>
         </div>
 
         <div class="inside">
