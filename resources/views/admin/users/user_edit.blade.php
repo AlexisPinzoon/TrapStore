@@ -38,10 +38,12 @@
                                     <span class="title"><i class="fas fa-user-shield"></i> Rol del usuario: </span>
                                     <span class="text">{{ getRoleUserArray(null,$u->role) }} </span>
                                 </div>
-                                @if ($u->status == "100")
-                                <a href="{{url ('/admin/user/'.$u->id.'/banned')}}" class="btn btn-Success">Quitar Suspensión </a>
-                                @else
-                                <a href="{{url ('/admin/user/'.$u->id.'/banned')}}" class="btn btn-danger">Suspender Usuario </a>
+                                @if(kvfj(Auth::user()->permissions, 'user_banned'))
+                                    @if ($u->status == "100")
+                                    <a href="{{url ('/admin/user/'.$u->id.'/banned')}}" class="btn btn-Success">Quitar Suspensión </a>
+                                    @else
+                                    <a href="{{url ('/admin/user/'.$u->id.'/banned')}}" class="btn btn-danger">Suspender Usuario </a>
+                                    @endif
                                 @endif
                             </div>
                         </div>
@@ -54,6 +56,19 @@
                             <h2 class="tittle"><i class="fas fa-user-edit"></i>Editar Información Usuario </h2>
                         </div>
                         <div class="inside">
+                            @if(kvfj(Auth::user()->permissions, 'user_edit'))
+                            {!! Form::open(['url' => 'admin/user/'.$u->id.'/edit']) !!}
+                                <label for="section" class="mtop16"> Tipo de usuario: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <i class="fa-solid fa-align-justify"></i>
+                                        </span>
+                                    </div>
+                                    {!! Form::select('user_type', getRoleUserArray('list',null), $u->role,['class' => 'custom-select']) !!}
+                                </div>
+                            {!! Form::close() !!}
+                            @endif
                         </div>
                     </div>
                 </div>

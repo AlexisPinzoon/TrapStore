@@ -10,8 +10,9 @@ class UserController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');
-        $this->middleware('isadmin');
         $this->middleware('user.status');
+        $this->middleware('user.permissions');
+        $this->middleware('isadmin');
 
     }
 
@@ -59,6 +60,7 @@ class UserController extends Controller
         $permissions = 'products' => $request->input('products'),
         $permissions = 'product_add' => $request->input('product_add'),
         $permissions = 'product_edit' => $request->input('product_edit'),
+        $permissions = 'product_delete' => $request->input('product_delete'),
         $permissions = 'product_gallery_add' => $request->input('product_gallery_add'),
         $permissions = 'product_gallery_delete' => $request->input('product_gallery_delete'),
         $permissions = 'categories' => $request->input('categories'),
@@ -68,6 +70,8 @@ class UserController extends Controller
         $permissions = 'user_list' => $request->input('user_list'),
         $permissions = 'user_edit' => $request->input('user_edit'),
         $permissions = 'user_banned' => $request->input('user_banned'),
+        $permissions = 'user_permissions' => $request->input('user_permissions'),
+
 
 
 

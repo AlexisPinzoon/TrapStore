@@ -52,13 +52,16 @@
                         </tr>
                         <td>
                             <div class="opts">
+                                @if(kvfj(Auth::user()->permissions, 'user_edit'))
                                 <a href="{{ url('/admin/user/'.$user->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
-
+                                @endif
+                                @if(kvfj(Auth::user()->permissions, 'user_permissions'))
                                 <a href="{{ url('/admin/user/'.$user->id.'/permissions')}}"data-toogle="tooltip" data-placement="top" title="Permisos de usuario">
                                     <i class="fas fa-cogs"></i>
                                 </a>
+                                @endif
                             </div>
                         </td>
 

@@ -18,6 +18,7 @@
                 </div>
 
                 <div class="inside">
+                    @if(kvfj(Auth::user()->permissions, 'category_add'))
                     {!! Form::open(['url'=> '/admin/category/add']) !!}
                     <label for="name" class="mtop16">Nombre:</label>
                     <div class="input-group">
@@ -50,7 +51,7 @@
                         </div>
 
                     {!! Form::submit('Guardar', ['class' => 'btn btn-success mtop16']) !!}
-
+                    @endif
 
                     {!! Form::close() !!}
 
@@ -86,12 +87,16 @@
                                 <td>{{ $cat->name }}</td>
                                 <td>
                                     <div class="opts">
+                                        @if(kvfj(Auth::user()->permissions, 'category_edit'))
                                         <a href="{{ url('/admin/category/'.$cat->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                        @endif
+                                        @if(kvfj(Auth::user()->permissions, 'category_delete'))
                                         <a href="{{ url('/admin/category/'.$cat->id.'/delete')}}"data-toogle="tooltip" data-placement="top" title="Eliminar">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

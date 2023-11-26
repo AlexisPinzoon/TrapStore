@@ -19,6 +19,7 @@
             </div>
 
             <div class="inside">
+
                 {!! Form::open(['url'=>'/admin/product/add', 'files'=>true]) !!}
                 <div class="row">
                     <div class="col-md-6">

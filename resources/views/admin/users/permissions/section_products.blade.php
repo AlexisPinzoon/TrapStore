@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 d-flex">
     <div class="panel shadow">
         <div class="header">
             <h2 class="tittle"><i class="fa-solid fa-box-open"></i> Seccion de Productos </h2>
@@ -16,6 +16,10 @@
             <div class="form-check">
                 <input type="checkbox" value="true" name="product_edit" @if(kvfj($u->permissions, 'product_edit')) checked @endif>
                 <label for="product_edit"> Puede editar productos </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" value="true" name="product_delete" @if(kvfj($u->permissions, 'product_delete')) checked @endif>
+                <label for="product_delete"> Puede eliminar productos </label>
             </div>
             <div class="form-check">
                 <input type="checkbox" value="true" name="product_gallery_add" @if(kvfj($u->permissions, 'product_gallery_add')) checked @endif>

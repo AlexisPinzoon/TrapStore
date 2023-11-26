@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 d-flex">
     <div class="panel shadow">
         <div class="header">
             <h2 class="tittle"><i class="fa-solid fa-sitemap"></i> Seccion de Categorias </h2>
