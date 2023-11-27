@@ -18,7 +18,7 @@ function kvfj($json, $key){
 function getSectionArray(){
     $a =[
         '0' => ' Productos ',
-        '1' => ' Blog '
+        '1' => ' Información '
     ];
     return $a;
 }

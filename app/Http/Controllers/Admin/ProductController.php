@@ -37,6 +37,13 @@ class ProductController extends Controller
         return view('admin.products.add', $data);
     }
 
+    public function getProductDelete($id){
+        $p = Product::findOrFail($id);
+        if($p->delete()):
+            return back()->with('message', 'Se ha eliminado exitosamente')->with('typealert', 'success');
+        endif;
+    }
+
     public function postProductAdd(Request $request){
         $rules = [
             'name' => 'required',
@@ -147,14 +154,10 @@ class ProductController extends Controller
                     $img->save($upload_path.'/'.$path.'/t_'.$filename);
                     unlink($upload_path.'/'.$ipp.'/'.$ip);
                     unlink($upload_path.'/'.$ipp.'/t_'.$ip);
-
                 endif;
                 return back()->with('message', 'Se ha actualizado exitosamente')->with('typealert', 'success');
             endif;
-
-
         endif;
-
     }
 
     public function postProductGalleryAdd($id, Request $request){

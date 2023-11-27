@@ -66,9 +66,9 @@ function delete_object(e){
     .then((willDelete) => {
         if (willDelete) {
         } else{
-            swal("Your");
+            swal("...");
         }
 
-        });
+    });
 
 }

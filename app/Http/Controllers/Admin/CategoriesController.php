@@ -26,12 +26,12 @@ class CategoriesController extends Controller
     public function postCategoryAdd(Request $request){
         $rules = [
             'name'=>'required',
-            'icon'=>'required'
+
         ];
 
         $massages =[
             'name.required' => 'Ingrese un nombre para la categoria',
-            'icon.required' => 'Ingrese un icono para la categoria'
+
 
         ];
 

@@ -78,6 +78,8 @@ class UserController extends Controller
     public function postUserPermissions(Request $request, $id){
         $u = User::findOrFail($id);
         $permissions = ['dashboard' => $request->input('dashboard'),
+        $permissions = 'dashboard_stats' => $request->input('dashboard_stats'),
+        $permissions = 'dashboard_sell_today' => $request->input('dashboard_sell_today'),
         $permissions = 'products' => $request->input('products'),
         $permissions = 'product_add' => $request->input('product_add'),
         $permissions = 'product_edit' => $request->input('product_edit'),

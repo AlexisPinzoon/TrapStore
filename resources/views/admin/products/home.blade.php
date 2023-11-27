@@ -45,7 +45,13 @@
                                 </a>
                             </td>
                             <td>{{$p->name}}</td>
-                            <td>{{$p->cat->name}}</td>
+                            <td>
+                                @if ($p->cat)
+                                    {{ $p->cat->name }}
+                                @else
+                                    Sin categoría
+                                @endif
+                            </td>
                             <td>{{$p->price}}</td>
                             <td>
                                 <div class="opts">
@@ -56,7 +62,7 @@
                                     @endif
 
                                     @if(kvfj(Auth::user()->permissions, 'product_delete'))
-                                    <a href="#" data-path="admin/product" data-object="{{ $p->id }}" data-toogle="tooltip" data-placement="top" title="Eliminar" class="btn-deleted">
+                                    <a href="{{ url ('/admin/product/'.$p->id.'/delete')}}"  data-toogle="tooltip" data-placement="top" title="Eliminar" class="btn-deleted">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                     @endif
