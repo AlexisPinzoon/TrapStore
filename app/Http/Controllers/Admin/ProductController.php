@@ -93,8 +93,6 @@ class ProductController extends Controller
                 endif;
                 return redirect('/admin/products')->with('message', 'Se ha guardo exitosamente')->with('typealert', 'success');
             endif;
-
-
         endif;
     }
 

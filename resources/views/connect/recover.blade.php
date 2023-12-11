@@ -1,6 +1,6 @@
 @extends('connect.layout')
 
-@section('title', 'Recuperar Contraseña')
+@section('tittle', 'Recuperar Contraseña')
 
 @section('content')
 <div class="box box_login shadow">

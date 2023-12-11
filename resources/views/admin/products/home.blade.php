@@ -56,13 +56,13 @@
                             <td>
                                 <div class="opts">
                                     @if(kvfj(Auth::user()->permissions, 'product_edit'))
-                                    <a href="{{ url('/admin/product/'.$p->id.'/edit')}}"data-toogle="tooltip" data-placement="top" title="Editar">
+                                    <a href="{{ url('/admin/product/'.$p->id.'/edit/')}}"data-toogle="tooltip" data-placement="top" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     @endif
 
                                     @if(kvfj(Auth::user()->permissions, 'product_delete'))
-                                    <a href="{{ url ('/admin/product/'.$p->id.'/delete')}}"  data-toogle="tooltip" data-placement="top" title="Eliminar" class="btn-deleted">
+                                    <a href="{{ url ('/admin/product/'.$p->id.'/delete/')}}"  data-toogle="tooltip" data-placement="top" title="Eliminar" class="btn-deleted">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                     @endif

@@ -70,20 +70,20 @@ class ConnectController extends Controller
 
         ];
         $validator = Validator::make($request->all(), $rules,$messages);
-            if($validator->fails()):
-                return back()->withErrors($validator)->with('message', 'Se ha producido un error', 'typealert', 'danger');
-            else:
-                $user = new User;
-                $user->name= $request->input('name');
-                $user->lastname= $request->input('lastname');
-                $user->email= $request->input('email');
-                $user->password = Hash::make($request->input('password'));
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error', 'typealert', 'danger');
+        else:
+            $user = new User;
+            $user->name= $request->input('name');
+            $user->lastname= $request->input('lastname');
+            $user->email= $request->input('email');
+            $user->password = Hash::make($request->input('password'));
 
-                if($user->save()):
-                    return redirect('/login') ->with('message', 'Usuario registrado correctamente', 'typealert', 'success');
-                endif;
-
+            if($user->save()):
+                return redirect('/login') ->with('message', 'Usuario registrado correctamente', 'typealert', 'success');
             endif;
+
+        endif;
     }
 
     public function getLogout(){
@@ -118,8 +118,9 @@ class ConnectController extends Controller
             $user = User::where('email', $request->input('email'))->count();
             if($user == "1"):
                 $user = User::where('email', $request->input('email'))->first();
-                $data = ['name' => $user->name, 'email' => $user->email];
-                return view('emails.user_pass_recover');
+                $code = rand(100000, 999999);
+                $data = ['name' => $user->name, 'email' => $user->email, 'code'=> $code];
+                return view('emails.user_pass_recover')->with($data);
             else:
                 return back()->with('message', 'El correo electronico ingresado no existe en nuestra base de datos')->with('typealert','danger');
             endif;
